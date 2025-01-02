@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const StrategyCard = ({ name, count }) => (
-  <div className="w-full p-4 bg-white rounded-lg hover:bg-gray-50 transition-colors flex justify-between items-center">
-    <span className="text-gray-900">{name}</span>
+  <div className="w-full p-4 bg-white rounded-lg hover:bg-[#98DED9] transition-colors flex justify-between items-center">
+    <span className="text-gray-900 font-semibold">{name}</span>
     <div className="flex items-center gap-2">
       <span className="w-1 h-1 bg-gray-300 rounded-full" />
       <span className="text-gray-400 text-sm">

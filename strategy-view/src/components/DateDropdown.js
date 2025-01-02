@@ -9,7 +9,7 @@ const DateDropdown = ({ dates, selectedDate, onDateChange }) => {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full p-4 bg-white rounded-lg hover:bg-gray-50 transition-colors flex justify-between items-center"
       >
-        <span className="text-gray-900">{selectedDate}</span>
+        <span className="text-gray-900 font-semibold">{selectedDate}</span>
         <svg
           className={`w-4 h-4 text-gray-400 transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
@@ -29,7 +29,7 @@ const DateDropdown = ({ dates, selectedDate, onDateChange }) => {
                 onDateChange(date);
                 setIsOpen(false);
               }}
-              className="p-4 hover:bg-gray-50 transition-colors cursor-pointer"
+              className="p-4 hover:bg-gray-50 font-semibold transition-colors cursor-pointer"
             >
               {date}
             </div>

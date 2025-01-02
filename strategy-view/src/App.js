@@ -50,7 +50,7 @@ const App = () => {
   }, [selectedView, selectedDate, strategyArray]);
 
   return (
-    <div className='bg-[#E1FFBB] h-screen'>
+    <div className='bg-[#C7FFD8] h-screen'>
     <div className="max-w-xl mx-auto p-4">
       <ViewToggle selectedView={selectedView} onViewChange={setSelectedView} />
       <DateDropdown

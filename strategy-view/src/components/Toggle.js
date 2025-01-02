@@ -9,9 +9,9 @@ const ViewToggle = ({ selectedView, onViewChange }) => {
         <button
           key={view}
           onClick={() => onViewChange(view)}
-          className={`flex-1 py-2 px-4 rounded-lg text-sm transition-colors
+          className={`flex-1 py-2 px-4 rounded-xl text-sm transition-colors
             ${selectedView === view
-              ? 'bg-[#001A6E] text-white'
+              ? 'bg-[#0B2F9F] text-white'
               : 'text-gray-900 hover:bg-gray-300'}`}
         >
           {view}
