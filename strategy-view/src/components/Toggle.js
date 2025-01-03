@@ -2,21 +2,33 @@ import React from 'react';
 
 const ViewToggle = ({ selectedView, onViewChange }) => {
   const views = ['Bullish', 'Bearish', 'Rangebound', 'Volatile'];
+  
   return (
-    <div className="flex gap-2 bg-gray-100 p-1 rounded-lg">
-      {views.map((view) => (
-        <button
-          key={view}
-          onClick={() => onViewChange(view)}
-          className={`flex-1 py-1 px-3 rounded-lg transition-colors ${
-            selectedView === view
-              ? 'bg-blue-600 text-white'
-              : 'text-gray-500 hover:bg-gray-50'
-          }`}
-        >
-          {view}
-        </button>
-      ))}
+    <div className="w-full overflow-x-auto scrollbar-hide sm:overflow-visible">
+      <div className="flex whitespace-nowrap min-w-min sm:min-w-0 sm:bg-gray-100 sm:p-1 sm:rounded-lg sm:gap-2">
+        {views.map((view) => (
+          <button
+            key={view}
+            onClick={() => onViewChange(view)}
+            className={`
+              flex-shrink-0 sm:flex-1
+              px-2 sm:px-3
+              py-2 sm:py-2
+              mr-1 sm:mr-0
+              text-sm
+              transition-colors
+              rounded-lg
+              ${
+                selectedView === view
+                  ? "bg-[#2a4fe6] text-white"
+                  : "text-gray-500 hover:text-gray-700 sm:hover:bg-gray-50"
+              }
+            `}
+          >
+            {view}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

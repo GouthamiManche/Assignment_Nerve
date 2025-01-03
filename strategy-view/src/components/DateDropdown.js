@@ -9,7 +9,7 @@ const DateDropdown = ({ dates, selectedDate, onDateChange, setIsOpen, isOpen }) 
       >
         <span className="text-gray-900 font-bold">{selectedDate}</span>
         <svg
-          className={`w-4 h-4 text-blue-700 transform transition-transform ${
+          className={`w-4 h-4 text-[#2a4fe6] transform transition-transform ${
             isOpen ? 'rotate-180' : ''
           }`}
           fill="none"
