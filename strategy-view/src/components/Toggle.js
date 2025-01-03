@@ -11,10 +11,10 @@ const ViewToggle = ({ selectedView, onViewChange }) => {
             key={view}
             onClick={() => onViewChange(view)}
             className={`
-              flex-shrink-0 sm:flex-1
+              flex-shrink-1 sm:flex-1
               px-2 sm:px-3
               py-2 sm:py-2
-              m-2 sm:mr-0
+              mx-[12px] sm:mx-1
               text-sm
               transition-colors
               rounded-lg
