@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ViewToggle from './components/Toggle';
 import DateDropdown from './components/DateDropdown';
-import { StrategyGrid } from './components/Strategy';
-const strategyArray = [
+import StrategyGrid from './components/Strategy';
+const mockStrategyData = [
   {
     View: 'Bullish',
     Value: {
@@ -38,29 +38,37 @@ const strategyArray = [
 ];
 
 const App = () => {
-  const dateArray = ['24-Apr-2024', '02-May-2024', '09-May-2024', '31-May-2024', '21-Jun-2024'];
+  const dates  = ['24-Apr-2024', '02-May-2024', '09-May-2024', '31-May-2024', '21-Jun-2024'];
   const [selectedView, setSelectedView] = useState('Bullish');
-  const [selectedDate, setSelectedDate] = useState(dateArray[0]);
+  const [selectedDate, setSelectedDate] = useState(dates[0]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [strategies, setStrategies] = useState([]);
 
   useEffect(() => {
-    const selectedViewData = strategyArray.find(item => item.View === selectedView);
+    const selectedViewData = mockStrategyData.find(item => item.View === selectedView);
     const strategies = selectedViewData?.Value[selectedDate] || [];
     setStrategies(strategies);
-  }, [selectedView, selectedDate, strategyArray]);
+  }, [selectedView, selectedDate]);
 
   return (
-    <div className='bg-[#C7FFD8] h-screen'>
+    <div className=" min-h-screen">
     <div className="max-w-xl mx-auto p-4">
       <ViewToggle selectedView={selectedView} onViewChange={setSelectedView} />
       <DateDropdown
-        dates={dateArray}
+        dates={dates}
         selectedDate={selectedDate}
         onDateChange={setSelectedDate}
+        isOpen={isDropdownOpen}
+        setIsOpen={setIsDropdownOpen}
       />
-     <StrategyGrid strategies={strategies} selectedDate={selectedDate} />
+      <StrategyGrid
+        strategies={strategies}
+        selectedDate={selectedDate}
+        isDropdownOpen={isDropdownOpen}
+        dropdownLength={dates.length}
+      />
     </div>
-    </div>
+  </div>
   );
 };
 

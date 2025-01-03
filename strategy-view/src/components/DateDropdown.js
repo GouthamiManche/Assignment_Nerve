@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const DateDropdown = ({ dates, selectedDate, onDateChange }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const DateDropdown = ({ dates, selectedDate, onDateChange, setIsOpen, isOpen }) => {
   return (
     <div className="relative mt-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full p-4 bg-white rounded-lg hover:bg-gray-50 transition-colors flex justify-between items-center"
+        className="w-full p-2 bg-white rounded-xl hover:bg-gray-50 transition-colors flex justify-between items-center border border-gray-200"
       >
-        <span className="text-gray-900 font-semibold">{selectedDate}</span>
+        <span className="text-gray-900 font-bold">{selectedDate}</span>
         <svg
-          className={`w-4 h-4 text-gray-400 transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 text-blue-700 transform transition-transform ${
+            isOpen ? 'rotate-180' : ''
+          }`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -21,25 +21,25 @@ const DateDropdown = ({ dates, selectedDate, onDateChange }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute w-full mt-1 bg-white rounded-lg shadow-lg z-10 divide-y divide-gray-100">
-          {dates.map((date) => (
-            <div
-              key={date}
-              onClick={() => {
-                onDateChange(date);
-                setIsOpen(false);
-              }}
-              className="p-4 hover:bg-gray-50 font-semibold transition-colors cursor-pointer"
-            >
-              {date}
-            </div>
+        <div className="absolute w-[95%] align-center left-1/2 transform -translate-x-1/2 rounded-lg mt-2 ">
+          {dates.map((date, index) => (
+            <React.Fragment key={date}>
+              <div
+                onClick={() => {
+                  onDateChange(date);
+                  setIsOpen(false);
+                }}
+                className="p-2 hover:bg-gray-50 font-bold rounded-lg cursor-pointer border border-gray-200 "
+              >
+                {date}
+              </div>
+              {index < dates.length - 1 && <div className="h-2" />}
+            </React.Fragment>
           ))}
         </div>
       )}
     </div>
   );
 };
-
-
 
 export default DateDropdown;
