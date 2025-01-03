@@ -5,7 +5,7 @@ const ViewToggle = ({ selectedView, onViewChange }) => {
   
   return (
     <div className="w-full overflow-x-auto scrollbar-hide sm:overflow-visible">
-      <div className="flex whitespace-nowrap min-w-min sm:min-w-0 sm:bg-gray-100 sm:p-1 sm:rounded-lg sm:gap-2">
+      <div className="flex whitespace-nowrap min-w-min sm:min-w-0 bg-gray-100 sm:p-1 rounded-lg sm:gap-2">
         {views.map((view) => (
           <button
             key={view}
