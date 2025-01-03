@@ -5,7 +5,7 @@ const ViewToggle = ({ selectedView, onViewChange }) => {
   
   return (
     <div className="w-full overflow-x-auto scrollbar-hide sm:overflow-visible">
-      <div className="flex whitespace-nowrap min-w-min sm:min-w-0 bg-gray-100 sm:p-1 rounded-lg sm:gap-2">
+      <div className="flex  justify-center whitespace-nowrap min-w-min sm:min-w-0 bg-gray-100 sm:p-1 rounded-lg sm:gap-2">
         {views.map((view) => (
           <button
             key={view}
@@ -14,10 +14,11 @@ const ViewToggle = ({ selectedView, onViewChange }) => {
               flex-shrink-0 sm:flex-1
               px-2 sm:px-3
               py-2 sm:py-2
-              mr-1 sm:mr-0
+              m-2 sm:mr-0
               text-sm
               transition-colors
               rounded-lg
+           
               ${
                 selectedView === view
                   ? "bg-[#2a4fe6] text-white"
